@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <script type="text/javascript">
+    function cal() {
+      var bdate=document.getElementById('date').value.split("-");
+      var out=document.getElementById('2');
+      out.setAttribute("style","width:82%;heigh:150px;text-align:center;")
+      var now=new Date();
+      var y=now.getFullYear();
+      var m=now.getMonth()+1;
+      var d=now.getDate();
+      if(d<bdate[2])
+      {
+        m-=1;
+        d+=30;
+      }
+      if(m<bdate[1])
+      {
+        y-=1;
+        m+=12;
+      }
+      out.innerHTML=y-bdate[0]+" years  "+(m-bdate[1])+" months  "+(d-bdate[2])+" days";
+    }
+      function time()
+      {
+      var btn=document.getElementById('done');
+      btn.addEventListener('click',cal,false);
+      var div=document.getElementById('1');
+      var now=new Date();
+      var year,month,date,h,m,s;
+      year=now.getFullYear();
+      month=(now.getMonth()+1);
+      if(month<10)
+        month="0"+month;
+      date=now.getDate();
+      if(date<10)
+        date="0"+date;
+      h=now.getHours();
+      if(h<10)
+        h="0"+h;
+      m=now.getMinutes();
+      if(m<10)
+        m="0"+m;
+      s=now.getSeconds();
+      if(s<10)
+        s="0"+s;
+      var day=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+      div.innerHTML=now.toLocaleString();
+      //div.innerHTML="_"+year+"/"+month+"/"+date+"_";
+      //div.innerHTML+="<br>"+day[now.getDay()]+"  "+h+":"+m+":"+s;
+      setTimeout(time, 1000)
+
+    }
+    window.addEventListener("load",time,false);
+    </script>
+  </head>
+  <body style="background-image:linear-gradient(to  left,#dbcae9,#c18fe9,#ae60ed,#8c09f6)">
+    <div id='1' style="font-size:6em;margin-left:10%;margin-right:10%;margin-top:5%;text-shadow:8px 10px #4877cd">    </div>
+    <br><br><br>
+    <div style="padding-left: 30px;border-width:3px;box-shadow: 10px 10px #4877cd;border-style:solid;border-color:#000000;border-radius:6px;margin-left:30%;margin-right:30%;font-size:1.5em">
+      <br><br>
+      <label for="date">birthdate m/d/y</label>
+      <input type="date" name="date" value="date" id="date">
+      <input type="button" name="done" value="done" id="done">
+      <br><br>
+      <div id="2"></div>
+      <br><br>
+    </div>
+  </body>
+</html>
