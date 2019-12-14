@@ -51,10 +51,9 @@
       div.innerHTML=now.toLocaleString();
       //div.innerHTML="_"+year+"/"+month+"/"+date+"_";
       //div.innerHTML+="<br>"+day[now.getDay()]+"  "+h+":"+m+":"+s;
-      setTimeout(time, 1000)
-
     }
     window.addEventListener("load",time,false);
+      setInterval(time, 1000);
     </script>
   </head>
   <body style="background-image:linear-gradient(to  left,#dbcae9,#c18fe9,#ae60ed,#8c09f6)">
